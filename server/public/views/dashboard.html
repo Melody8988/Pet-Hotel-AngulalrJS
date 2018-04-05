@@ -17,15 +17,15 @@
            <th>Owner</th>
            <th>Checked In</th>
            <th>Delete</th></thead>
-    <tbody><tr ng-repeat="pets in vm.petList.Pets">
+    <tbody><tr ng-repeat="pet in vm.petList.Pets">
 
-           <td>{{pets.name}}</td>
-           <td>{{pets.type}}</td>
-           <td>{{pets.breed}}</td>
-           <td>{{pets.color}}</td>
-           <td>{{pets.owner}}</td>
-           <td>{{pets.checkedIn}}</td>
-           <td><button>Delete</button></td>
+           <td>{{pet.name}}</td>
+           <td>{{pet.type}}</td>
+           <td>{{pet.breed}}</td>
+           <td>{{pet.color}}</td>
+           <td>{{pet.owner}}</td>
+           <td>{{pet.checkedIn}}</td>
+           <td><button ng-click="vm.deletePet(pet)">Delete</button></td>
         </tr></tbody>
     
 </table>

@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
 //POST to pg
 router.post('/', (req, res) =>{
     let newPet = req.body;
-    
     let queryText = `INSERT INTO "pets" ("name", "type", "breed", "color", "owner")
     VALUES ($1, $2, $3, $4, $5);`
     pool.query(queryText, [newPet.name, newPet.type, newPet.breed, newPet.color, newPet.owner])
@@ -26,6 +25,20 @@ router.post('/', (req, res) =>{
         console.log('Error inserting', error);
     });
 });
+
+//DELETE 
+router.delete('/:id', (req, res)=>{
+    let petId = req.params.id;
+    console.log('successful router.delete', petId );
+    const queryText = 'DELETE FROM "pets" WHERE "id" = $1;';
+    pool.query(queryText, [petId]).then((response)=>{
+      console.log(response);
+      res.sendStatus(204);
+    }).catch((err)=>{
+      res.sendStatus(500);
+    });
+    
+  });
 
 
 

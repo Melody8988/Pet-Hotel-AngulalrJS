@@ -13,21 +13,11 @@ petApp.controller('dashController', ['$http', function($http){
         console.log(error, 'Error getting pets');
         })
     }
-    //POST commented out because I've used the old way
-    // self.addPet = function(pet){
-    //     console.log('in self.addPet!', pet)
 
-    //     $http.post('/dash', pet).then(function(response){
-    //         console.log('pet successfully posted!');
-    //         getPets();
-    //     }).catch(function(error){
-    //         console.log('Error in posting pet', error)
-    //     })
-    // }
-
+    //POST
     self.addPet = function(pet){
         console.log('Inside add pet!', pet);
-        // self.newToDo = null;//clear input field 
+        self.newPet = null; //clear inputs
     
         $http({
             method: 'POST',
@@ -40,4 +30,18 @@ petApp.controller('dashController', ['$http', function($http){
             console.log('Error in POST', error)
         });
     }
+
+    self.deletePet = function(pet) {
+        console.log("called deletePet", pet)
+
+        $http({
+          method: 'DELETE',
+          url: '/dash/' + pet.id
+        }).then(function(response){
+          console.log('can delete pet!');
+          getPets();
+        }).catch(function(error){
+          console.log('cannot delete', error);
+        })
+      }
 }]);
