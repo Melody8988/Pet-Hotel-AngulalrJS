@@ -1,0 +1,31 @@
+<h2>Add Pet:</h2>
+    <input type="text" ng-model="vm.newPet.name" placeholder="Pet Name" >
+    <select ng-model="vm.newPet.type">
+    <option value="" disabled selected>Type of Pet</option>
+    <option >Cat</option>
+    <option >Dog</option>
+    </select>
+    <input type="text" ng-model="vm.newPet.breed" placeholder="Breed" >
+    <input type="text" ng-model="vm.newPet.color" placeholder="Color" >
+    <input type="text" ng-model="vm.newPet.owner" placeholder="Owner" >
+    <button ng-click="vm.addPet(vm.newPet)">Submit</button>
+<table>
+    <thead><th>Pet Name</th>
+           <th>type</th>
+           <th>Breed</th>
+           <th>Color</th>
+           <th>Owner</th>
+           <th>Checked In</th>
+           <th>Delete</th></thead>
+    <tbody><tr ng-repeat="pets in vm.petList.Pets">
+
+           <td>{{pets.name}}</td>
+           <td>{{pets.type}}</td>
+           <td>{{pets.breed}}</td>
+           <td>{{pets.color}}</td>
+           <td>{{pets.owner}}</td>
+           <td>{{pets.checkedIn}}</td>
+           <td><button>Delete</button></td>
+        </tr></tbody>
+    
+</table>
