@@ -2,9 +2,10 @@ petApp.controller('dashController', ['$http', function($http){
     console.log('dashController loaded');
     let self = this;
     self.petList = {Pets: [] }
+    self.ownersList = { list: [] }
     getPets();
 
-    //GET ON PAGE LOAD
+    //GET all pets from database on page load
     function getPets(){
         console.log('On page load, get pets');
             $http.get('/dash').then(function(response){
@@ -14,11 +15,11 @@ petApp.controller('dashController', ['$http', function($http){
         })
     }
 
-    //POST
+
+    //POST 
     self.addPet = function(pet){
         console.log('Inside add pet!', pet);
-        self.newPet = null; //clear inputs
-    
+        self.newPet = null; //clear form inputs
         $http({
             method: 'POST',
             url: '/dash',
@@ -33,7 +34,6 @@ petApp.controller('dashController', ['$http', function($http){
 
     self.deletePet = function(pet) {
         console.log("called deletePet", pet)
-
         $http({
           method: 'DELETE',
           url: '/dash/' + pet.id

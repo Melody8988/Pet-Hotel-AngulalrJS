@@ -1,19 +1,27 @@
 <h2>Add Pet:</h2>
+    <!-- FORM START -->
     <input type="text" ng-model="vm.newPet.name" placeholder="Pet Name" >
-    <select ng-model="vm.newPet.type">
-    <option value="" disabled selected>Type of Pet</option>
-    <option >Cat</option>
-    <option >Dog</option>
-    </select>
     <input type="text" ng-model="vm.newPet.breed" placeholder="Breed" >
     <input type="text" ng-model="vm.newPet.color" placeholder="Color" >
-    <input type="text" ng-model="vm.newPet.owner" placeholder="Owner" >
+   <!-- Pet type -->
+    <select ng-model="vm.newPet.type">
+        <option value="">Select Type</option>
+        <option >Dog</option>
+        <option >Cat</option>
+    </select>
+    <!-- Owner id -->
+    <select ng-model="vm.newPet.owners_id">
+        <option value="">Select Owner</option>
+        <option ng-repeat="owner in vm.ownersList.list" value="{{owners.id}}">{{owners.name}}</option>
+    </select>
     <button ng-click="vm.addPet(vm.newPet)">Submit</button>
+    <!-- FORM END -->
+
 <table>
     <thead><th>Pet Name</th>
-           <th>type</th>
            <th>Breed</th>
            <th>Color</th>
+           <th>Type</th>
            <th>Owner</th>
            <th>Checked In</th>
            <th>Delete</th></thead>
