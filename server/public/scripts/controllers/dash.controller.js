@@ -3,10 +3,9 @@ petApp.controller('dashController', ['$http', function($http){
     let self = this;
     self.petList = {Pets: [] }
     self.ownersList = { list: [] }
-    getPets();
 
     //CONTROLER GET
-    function getPets(){
+    self.getPets = function(){
         console.log('On page load, get pets');
             $http.get('/dash').then(function(response){
              self.petList.Pets = response.data;
@@ -25,7 +24,7 @@ petApp.controller('dashController', ['$http', function($http){
             data: pet
         }).then(function(response){
             console.log('POST response: ', response);
-            getPets();
+            self.getPets();
         }).catch(function(error){
             console.log('Error in POST', error)
         });
@@ -39,9 +38,10 @@ petApp.controller('dashController', ['$http', function($http){
           url: '/dash/' + pet.id
         }).then(function(response){
           console.log('can delete pet!');
-          getPets();
+          self.getPets();
         }).catch(function(error){
           console.log('cannot delete', error);
         })
       }
+      self.getPets();//get all existing pet on page load
 }]);

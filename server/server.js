@@ -10,8 +10,6 @@ app.use(bodyParser.json());
 app.use('/dash', petRouter);
 app.use('/owners', ownerRouter);
 
-
-
 // Serve static files
 app.use(express.static('server/public'));
 
