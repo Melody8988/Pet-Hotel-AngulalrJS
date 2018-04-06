@@ -1,8 +1,7 @@
 petApp.controller('dashController', ['$http', function($http){
     console.log('dashController loaded');
     let self = this;
-    self.petList = {Pets: [] }
-    self.ownersList = { list: [] }
+    // self.petList = {Pets: [] }
 
     //CONTROLER GET
     self.getPets = function(){
