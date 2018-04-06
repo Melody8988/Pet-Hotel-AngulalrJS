@@ -28,5 +28,21 @@ ownerRouter.post('/', (req, res) =>{
     });
 });
 
+//DELETE
+
+ownerRouter.delete('/:id', (req, res)=>{
+    let ownerId = req.params.id;
+    console.log('successful router.delete', ownerId );
+    const queryText = 'DELETE FROM "owners" WHERE "id" = $1;'
+    pool.query(queryText, [ownerId]).then((response)=>{
+      console.log(response);
+      res.sendStatus(204);
+    }).catch((err)=>{
+      res.sendStatus(500);
+    });
+    
+  });
+
+
 
 module.exports = ownerRouter;

@@ -5,7 +5,7 @@ petApp.controller('ownerController', ['$http', function($http){
 
     getOwners();
 
-    //get all owners from postgres
+    //CONTROLLER GET
     function getOwners(){
         console.log('in get owners');
             $http({
@@ -18,6 +18,8 @@ petApp.controller('ownerController', ['$http', function($http){
                 console.log('error in GET:', error);
             })
         }
+
+    //CONTROLLER POST
 
     self.addOwner = function(owner){
             console.log('Inside add owner', owner);
@@ -33,4 +35,19 @@ petApp.controller('ownerController', ['$http', function($http){
                 console.log('Error in POST', error)
             });
         }
+
+    //CONTROLLER DELETE 
+
+    self.deleteOwner = function(owner) {
+        console.log("called deleteOwner", owner)
+        $http({
+          method: 'DELETE',
+          url: '/owners/' + owner.id
+        }).then(function(response){
+          console.log('can delete owner!');
+          getOwners();
+        }).catch(function(error){
+          console.log('cannot delete', error);
+        })
+      }
 }]);

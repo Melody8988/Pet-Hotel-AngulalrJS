@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 const bodyParser = require('body-parser');
 var port = process.env.PORT || 3004;
-const petRouter = require('./routes/pet.router');
+const petRouter = require('./routes/dash.router');
 const ownerRouter = require('./routes/owner.router');
 const pool = require('./modules/pool.js')
 app.use(bodyParser.json());

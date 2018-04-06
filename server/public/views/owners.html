@@ -11,6 +11,6 @@
         <tr ng-repeat="owner in vm.ownerConList.list">
            <td>{{owner.name}}</td>
            <td>count here</td>
-           <td><button>Delete</button></td>
+           <td><button ng-click="vm.deleteOwner(owner)">Delete</button></td>
         </tr>
     </tbody>
