@@ -3,10 +3,9 @@ petApp.controller('ownerController', ['$http', function($http){
     let self = this;
     self.ownerConList = {list: [] };
 
-    getOwners();
 
     //CONTROLLER GET
-    function getOwners(){
+    self.getOwners = function(){
         console.log('in get owners');
             $http({
                 method: 'GET',
@@ -20,7 +19,6 @@ petApp.controller('ownerController', ['$http', function($http){
         }
 
     //CONTROLLER POST
-
     self.addOwner = function(owner){
             console.log('Inside add owner', owner);
             self.newOwner = null; //clear form inputs
@@ -30,14 +28,13 @@ petApp.controller('ownerController', ['$http', function($http){
                 data: owner
             }).then(function(response){
                 console.log('POST response: ', response);
-                getOwners();
+                self.getOwners();
             }).catch(function(error){
                 console.log('Error in POST', error)
             });
         }
 
     //CONTROLLER DELETE 
-
     self.deleteOwner = function(owner) {
         console.log("called deleteOwner", owner)
         $http({
@@ -45,9 +42,10 @@ petApp.controller('ownerController', ['$http', function($http){
           url: '/owners/' + owner.id
         }).then(function(response){
           console.log('can delete owner!');
-          getOwners();
+          self.getOwners();
         }).catch(function(error){
           console.log('cannot delete', error);
         })
       }
+      self.getOwners();
 }]);
