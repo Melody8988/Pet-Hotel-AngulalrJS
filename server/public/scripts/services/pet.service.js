@@ -4,7 +4,7 @@ petApp.service('petService', ['$http', function($http) {
 
     self.petList = {Pets: [] }
 
-      //CONTROLER GET
+      //DASH GET
       self.getPets = function(){
         console.log('On page load, get pets');
             $http.get('/dash').then(function(response){
@@ -14,7 +14,7 @@ petApp.service('petService', ['$http', function($http) {
         })
     }
 
-    //CONTROLLER POST 
+    //DASH POST 
     self.addPet = function(pet){
         console.log('Inside add pet!', pet);
         self.newPet = null; //clear form inputs
@@ -30,7 +30,7 @@ petApp.service('petService', ['$http', function($http) {
         });
     }
 
-    //CONTROLLER DELETE 
+    //DASH DELETE 
     self.deletePet = function(pet) {
         console.log("called deletePet", pet)
         $http({

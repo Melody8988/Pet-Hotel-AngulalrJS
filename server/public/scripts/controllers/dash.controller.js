@@ -1,46 +1,16 @@
-petApp.controller('dashController', ['$http', function($http){
+petApp.controller('dashController', ['petService', function(petService){
     console.log('dashController loaded');
     let self = this;
-    // self.petList = {Pets: [] }
+    self.petList = petService.petList
 
-    //CONTROLER GET
-    self.getPets = function(){
-        console.log('On page load, get pets');
-            $http.get('/dash').then(function(response){
-             self.petList.Pets = response.data;
-        }).catch(function(error){
-        console.log(error, 'Error getting pets');
-        })
-    }
+    petService.getPets();
 
-    //CONTROLLER POST 
     self.addPet = function(pet){
-        console.log('Inside add pet!', pet);
-        self.newPet = null; //clear form inputs
-        $http({
-            method: 'POST',
-            url: '/dash',
-            data: pet
-        }).then(function(response){
-            console.log('POST response: ', response);
-            self.getPets();
-        }).catch(function(error){
-            console.log('Error in POST', error)
-        });
+      petService.addPet(pet);
     }
-
-    //CONTROLLER DELETE 
+   
     self.deletePet = function(pet) {
-        console.log("called deletePet", pet)
-        $http({
-          method: 'DELETE',
-          url: '/dash/' + pet.id
-        }).then(function(response){
-          console.log('can delete pet!');
-          self.getPets();
-        }).catch(function(error){
-          console.log('cannot delete', error);
-        })
+       petService.deletePet(pet);
       }
-      self.getPets();//get all existing pet on page load
+   
 }]);
