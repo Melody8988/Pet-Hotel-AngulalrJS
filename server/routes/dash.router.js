@@ -4,7 +4,12 @@ const pool = require('../modules/pool.js');
 
 //ROUTER GET
 petRouter.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM pets';
+    let queryText = `SELECT "pets"."name", "pets"."type", 
+                            "pets"."breed", "pets"."color", 
+                            "owners"."firstname", "pets"."checkedIn" 
+                     FROM "pets" 
+                     JOIN "owners" 
+                     ON "pets"."owners_id" = "owners"."id";`;
     pool.query(queryText).then( (result) => {
       const response = result.rows;
       console.log(response);
@@ -22,7 +27,7 @@ petRouter.post('/', (req, res) =>{
         console.log('Successfully inserted', response);
         res.sendStatus(201);
     }).catch( (error) => {
-        console.log('Error inserting', error);
+        console.log('Error inserting TEST', error);
     });
 });
 
@@ -39,8 +44,6 @@ petRouter.delete('/:id', (req, res)=>{
     });
     
   });
-
-
 
 
 module.exports = petRouter;

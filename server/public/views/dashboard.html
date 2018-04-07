@@ -12,7 +12,7 @@
     <!-- Owner id -->
     <select ng-model="vm.newPet.owners_id">
         <option value="">Select Owner</option>
-        <option ng-repeat="owner in vm.ownersList.list" value="{{owners.id}}">{{owners.name}}</option>
+        <option ng-repeat="owner in vm.ownerConList.list" value="{{owner.id}}">{{owner.firstname}}</option>
     </select>
     <button ng-click="vm.addPet(vm.newPet)">Submit</button>
     <!-- FORM END -->
@@ -31,7 +31,7 @@
            <td>{{pet.type}}</td>
            <td>{{pet.breed}}</td>
            <td>{{pet.color}}</td>
-           <td>{{pet.owner}}</td>
+           <td>{{pet.firstname}}</td>
            <td>{{pet.checkedIn}}</td>
            <td><button ng-click="vm.deletePet(pet)">Delete</button></td>
         </tr></tbody>

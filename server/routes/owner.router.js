@@ -17,9 +17,9 @@ ownerRouter.get('/', (req, res)=>{
 //POST
 ownerRouter.post('/', (req, res) =>{
     let newOwner = req.body;
-    let queryText = `INSERT INTO "owners" ("name")
+    let queryText = `INSERT INTO "owners" ("firstname")
     VALUES ($1);`
-    pool.query(queryText, [newOwner.name])
+    pool.query(queryText, [newOwner.firstname])
     .then( (response) => {
         console.log('Successfully inserted', response);
         res.sendStatus(201);
