@@ -1,51 +1,14 @@
-petApp.controller('ownerController', ['$http', function($http){
+petApp.controller('ownerController', ['petService', function(petService){
     console.log('ownerController loaded');
     let self = this;
-    self.ownerConList = {list: [] };
+    self.ownerConList = petService.ownerConList;
 
-
-    //CONTROLLER GET
-    self.getOwners = function(){
-        console.log('in get owners');
-            $http({
-                method: 'GET',
-                url: '/owners'
-            }).then(function(response){
-                console.log('GET response:', response);
-                self.ownerConList.list = response.data;
-            }).catch(function(error){
-                console.log('error in GET:', error);
-            })
-        }
-
-    //CONTROLLER POST
     self.addOwner = function(owner){
-            console.log('Inside add owner', owner);
-            self.newOwner = null; //clear form inputs
-            $http({
-                method: 'POST',
-                url: '/owners',
-                data: owner
-            }).then(function(response){
-                console.log('POST response: ', response);
-                self.getOwners();
-            }).catch(function(error){
-                console.log('Error in POST', error)
-            });
+           petService.addOwner(owner);
         }
 
-    //CONTROLLER DELETE 
     self.deleteOwner = function(owner) {
-        console.log("called deleteOwner", owner)
-        $http({
-          method: 'DELETE',
-          url: '/owners/' + owner.id
-        }).then(function(response){
-          console.log('can delete owner!');
-          self.getOwners();
-        }).catch(function(error){
-          console.log('cannot delete', error);
-        })
+        petService.deleteOwner(owner);
       }
-      self.getOwners();
+
 }]);

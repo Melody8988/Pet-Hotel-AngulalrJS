@@ -3,6 +3,7 @@ petApp.service('petService', ['$http', function($http) {
     const self = this;
 
     self.petList = {Pets: [] }
+    self.ownerConList = {list: [] };
 
       //DASH GET
       self.getPets = function(){
@@ -43,6 +44,51 @@ petApp.service('petService', ['$http', function($http) {
           console.log('cannot delete', error);
         })
       }
-      self.getPets();//get all existing pet on page load
+    //OWNER GET
+    self.getOwners = function(){
+        console.log('in get owners');
+            $http({
+                method: 'GET',
+                url: '/owners'
+            }).then(function(response){
+                console.log('GET response:', response);
+                self.ownerConList.list = response.data;
+            }).catch(function(error){
+                console.log('error in GET:', error);
+            })
+        }
+
+    //OWNER POST
+    self.addOwner = function(owner){
+            console.log('Inside add owner', owner);
+            self.newOwner = null; //clear form inputs
+            $http({
+                method: 'POST',
+                url: '/owners',
+                data: owner
+            }).then(function(response){
+                console.log('POST response: ', response);
+                self.getOwners();
+            }).catch(function(error){
+                console.log('Error in POST', error)
+            });
+        }
+
+    //OWNER DELETE 
+    self.deleteOwner = function(owner) {
+        console.log("called deleteOwner", owner)
+        $http({
+          method: 'DELETE',
+          url: '/owners/' + owner.id
+        }).then(function(response){
+          console.log('can delete owner!');
+          self.getOwners();
+        }).catch(function(error){
+          console.log('cannot delete', error);
+        })
+      }
+      //get all existing pets and owners
+      self.getOwners();
+      self.getPets();
 
 }]);
