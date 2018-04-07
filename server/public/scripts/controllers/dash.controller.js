@@ -3,7 +3,7 @@ petApp.controller('dashController', ['petService', function(petService){
     let self = this;
     self.petList = petService.petList
 
-    // petService.getPets();
+    petService.getPets();
 
     self.addPet = function(pet){
       petService.addPet(pet);
