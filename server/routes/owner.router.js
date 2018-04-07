@@ -29,7 +29,6 @@ ownerRouter.post('/', (req, res) =>{
 });
 
 //DELETE
-
 ownerRouter.delete('/:id', (req, res)=>{
     let ownerId = req.params.id;
     console.log('successful router.delete', ownerId );
