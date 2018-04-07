@@ -1,3 +1,7 @@
+h1{
+  text-align: center
+}
+
 /* nav bar styling for now */
 nav {
     list-style-type: none;
@@ -31,18 +35,20 @@ body {
   }
   
   table {
+    margin-top: 30px;
     border: 1px solid #ccc;
     border-collapse: collapse;
     width:70%; 
     margin-left:10%; 
     margin-right:10%;
     table-layout: fixed;
+    
 
   }
   
 
   table tr {
-    background-color: #f8f8f8;
+    background-color: #ED5565;
     border: 1px solid #ddd;
     padding: .35em;
   }
