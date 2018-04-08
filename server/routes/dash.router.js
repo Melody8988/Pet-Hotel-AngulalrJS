@@ -5,7 +5,7 @@ const pool = require('../modules/pool.js');
 //ROUTER GET
 petRouter.get('/', (req, res) => {
     let queryText = `SELECT "pets"."name", "pets"."type", 
-                            "pets"."breed", "pets"."color", 
+                            "pets"."breed", "pets"."color", "pets"."id",
                             "owners"."firstname", "pets"."checkedIn" 
                      FROM "pets" 
                      JOIN "owners" 
@@ -33,6 +33,7 @@ petRouter.post('/', (req, res) =>{
 
 //ROUTER DELETE 
 petRouter.delete('/:id', (req, res)=>{
+    console.log(req.params, 'req.params test');
     let petId = req.params.id;
     console.log('successful router.delete', petId );
     const queryText = 'DELETE FROM "pets" WHERE "id" = $1;'

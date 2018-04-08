@@ -7,6 +7,7 @@ ownerRouter.get('/', (req, res)=>{
     let queryText = 'SELECT * FROM owners';
     pool.query(queryText).then((result)=>{
         const response = result.rows;
+        console.log(response);
         res.send(result.rows);
     }).catch((error) => {
         console.log('error in /owners GET', error);
@@ -32,7 +33,7 @@ ownerRouter.post('/', (req, res) =>{
 
 ownerRouter.delete('/:id', (req, res)=>{
     let ownerId = req.params.id;
-    console.log('successful router.delete', ownerId );
+    
     const queryText = 'DELETE FROM "owners" WHERE "id" = $1;'
     pool.query(queryText, [ownerId]).then((response)=>{
       console.log(response);

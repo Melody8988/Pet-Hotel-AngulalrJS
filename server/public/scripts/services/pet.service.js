@@ -26,6 +26,7 @@ petApp.service('petService', ['$http', function($http) {
         }).then(function(response){
             console.log('POST response: ', response);
             self.getPets();
+            self.getOwners();
         }).catch(function(error){
             console.log('Error in POST', error)
         });
@@ -40,6 +41,7 @@ petApp.service('petService', ['$http', function($http) {
         }).then(function(response){
           console.log('can delete pet!');
           self.getPets();
+          self.getOwners();
         }).catch(function(error){
           console.log('cannot delete', error);
         })
@@ -51,7 +53,7 @@ petApp.service('petService', ['$http', function($http) {
                 method: 'GET',
                 url: '/owners'
             }).then(function(response){
-                console.log('GET response:', response);
+                console.log('GET owners:', response);
                 self.ownerConList.list = response.data;
             }).catch(function(error){
                 console.log('error in GET:', error);
@@ -69,6 +71,7 @@ petApp.service('petService', ['$http', function($http) {
             }).then(function(response){
                 console.log('POST response: ', response);
                 self.getOwners();
+                self.getPets();
             }).catch(function(error){
                 console.log('Error in POST', error)
             });
@@ -83,8 +86,10 @@ petApp.service('petService', ['$http', function($http) {
         }).then(function(response){
           console.log('can delete owner!');
           self.getOwners();
+          self.getPets();
         }).catch(function(error){
           console.log('cannot delete', error);
+          alert(`You must remove owner's pet from the hotel before deleting owner information`);
         })
       }
       //get all existing pets and owners

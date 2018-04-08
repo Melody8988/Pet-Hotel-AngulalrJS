@@ -12,6 +12,7 @@ petApp.controller('dashController', ['petService', function(petService){
    
     self.deletePet = function(pet) {
        petService.deletePet(pet);
+      
       }
    
 }]);
