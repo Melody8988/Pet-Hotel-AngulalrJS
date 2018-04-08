@@ -4,7 +4,10 @@ const pool = require('../modules/pool.js');
 
 //GET
 ownerRouter.get('/', (req, res)=>{
-    let queryText = 'SELECT * FROM owners';
+    let queryText = `SELECT "owners".*, count("pets") as "numOfPets" 
+    FROM "owners" LEFT JOIN "pets"
+    ON "owners"."id" = "pets"."owners_id"
+    GROUP BY "owners"."id";`
     pool.query(queryText).then((result)=>{
         const response = result.rows;
         console.log(response);

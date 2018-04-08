@@ -10,7 +10,7 @@
     <tbody>
         <tr ng-repeat="owner in vm.ownerConList.list">
            <td>{{owner.firstname}}</td>
-           <td>count here</td>
+           <td>{{owner.numOfPets}}</td>
            <td><button ng-click="vm.deleteOwner(owner)">Delete</button></td>
         </tr>
     </tbody>
