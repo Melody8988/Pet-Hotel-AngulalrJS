@@ -32,7 +32,13 @@
            <td>{{pet.breed}}</td>
            <td>{{pet.color}}</td>
            <td>{{pet.firstname}}</td>
-           <td>{{pet.checkedIn}}</td>
+           <td><button ng-if="pet.checkedIn" class="checkInBtn" ng-click="vm.changeStatus(pet.id, pet.checkedIn)">
+                        ✓ </button><button ng-if="!pet.checkedIn" class="notCheckedInBtn" ng-click="vm.changeStatus(pet.id, pet.checkedIn)">
+                        not </button>
+            
+            <!-- {{pet.checkedIn}} -->
+            </td>
+
            <td><button ng-click="vm.deletePet(pet)">Delete</button></td>
         </tr></tbody>
         

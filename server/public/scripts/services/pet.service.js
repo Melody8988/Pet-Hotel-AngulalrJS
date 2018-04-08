@@ -5,8 +5,8 @@ petApp.service('petService', ['$http', function($http) {
     self.petList = {Pets: [] }
     self.ownerConList = {list: [] };
 
-      //DASH GET
-      self.getPets = function(){
+    //DASH GET
+    self.getPets = function(){
         console.log('On page load, get pets');
             $http.get('/dash').then(function(response){
              self.petList.Pets = response.data;
@@ -46,6 +46,25 @@ petApp.service('petService', ['$http', function($http) {
           console.log('cannot delete', error);
         })
       }
+
+      //UPDATE STATUS
+      self.changeStatus = function(petId, updatedStatus){
+        updatedStatus = !updatedStatus;
+
+        console.log('new status will be', updatedStatus);
+
+        $http({
+            method: 'PUT', 
+            url: '/dash/' + petId,
+            data: {checkedIn: updatedStatus}
+        }).then(function(response){
+            console.log('checkin status changed!');
+            self.getPets();
+        }).catch(function(error){
+            console.log('error changing checkin status', error);
+        })
+    }
+
     //OWNER GET
     self.getOwners = function(){
         console.log('in get owners');

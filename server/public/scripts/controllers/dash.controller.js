@@ -4,7 +4,6 @@ petApp.controller('dashController', ['petService', function(petService){
     self.petList = petService.petList
     self.ownerConList = petService.ownerConList;
 
-    // self.getPets = petService.getPets;
 
     self.addPet = function(pet){
       petService.addPet(pet);
@@ -12,7 +11,10 @@ petApp.controller('dashController', ['petService', function(petService){
    
     self.deletePet = function(pet) {
        petService.deletePet(pet);
-      
+      }
+
+    self.changeStatus = function(petId, updatedStatus) {
+        petService.changeStatus(petId, updatedStatus);
       }
    
 }]);

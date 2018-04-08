@@ -46,5 +46,20 @@ petRouter.delete('/:id', (req, res)=>{
     
   });
 
+  //ROUTER CHANGE STATUS 
+ petRouter.put('/:id', (req, res)=>{
+
+   console.log('PUT for dash checkin', req.body, req.params);
+   const checkBoolean = req.body;
+   const petId = req.params.id;
+   const queryText = `UPDATE "pets" SET "checkedIn" = $1 WHERE "id" = $2;`;
+   pool.query(queryText, [checkBoolean.checkedIn, petId])
+   .then((response)=>{
+     res.sendStatus(200);
+   }).catch((error)=>{
+     console.log('error updating checkin status on database', error);
+     res.sendStatus(500);
+   })
+ });
 
 module.exports = petRouter;
