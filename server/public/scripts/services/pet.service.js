@@ -1,23 +1,22 @@
 petApp.service('petService', ['$http', function($http) {
     console.log('petService has been loaded');
     const self = this;
-
     self.petList = {Pets: [] }
     self.ownerConList = {list: [] };
 
-    //DASH GET
+    //DASHBOARD GET - get all existing pets 
     self.getPets = function(){
-        console.log('On page load, get pets');
-            $http.get('/dash').then(function(response){
-             self.petList.Pets = response.data;
+        // console.log('On page load, get pets');
+        $http.get('/dash').then(function(response){
+        self.petList.Pets = response.data;
         }).catch(function(error){
         console.log(error, 'Error getting pets');
-        })
-    }
+        })//end catch
+    }//end getPets
 
-    //DASH POST 
+    //DASHBOARD POST - add new pet 
     self.addPet = function(pet){
-        console.log('Inside add pet!', pet);
+        // console.log('Inside add pet!', pet);
         self.newPet = null; //clear form inputs
         $http({
             method: 'POST',

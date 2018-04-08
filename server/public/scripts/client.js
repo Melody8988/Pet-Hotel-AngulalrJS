@@ -1,4 +1,4 @@
-const petApp = angular.module('petApp', ['ngRoute'])
+const petApp = angular.module('petApp', ['ngRoute', 'ngMaterial'])
 
 petApp.config(function($routeProvider){
 
