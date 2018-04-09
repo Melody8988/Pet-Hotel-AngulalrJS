@@ -5,7 +5,7 @@
     <input type="text" ng-model="vm.newOwner.lastname" placeholder="Owner Last Name">
     <input type="number" ng-model="vm.newOwner.phone" placeholder="Phone">
     <input type="email" ng-model="vm.newOwner.email" placeholder="Email">
-    <button ng-click="vm.addOwner(vm.newOwner)">Submit</button>
+    <md-button ng-click="vm.addOwner(vm.newOwner)">Submit</md-button>
 </div>
 <!-- FORM END -->
 <table>
@@ -23,6 +23,6 @@
            <td>{{owner.numOfPets}}</td>
            <td>{{owner.phone}}</td>
            <td>{{owner.email}}</td>
-           <td><button ng-click="vm.deleteOwner(owner)">Delete</button></td></tr>
+           <td><md-button ng-click="vm.deleteOwner(owner)">Delete</md-button></td></tr>
     </tbody>
 </table>

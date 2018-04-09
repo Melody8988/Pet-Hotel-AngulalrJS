@@ -35,7 +35,7 @@ a {
 
 /* Change the link color on hover */
 a:hover {
-    background-color: #C33C54;
+    background-color: #254E70;
     color: white; 
 }
 
@@ -52,7 +52,7 @@ body {
     display: block;
     font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
-    font-size: 115%;
+    font-size: 110%;
     /* overflow: auto; */
     margin: auto;  
     width: 85%;  

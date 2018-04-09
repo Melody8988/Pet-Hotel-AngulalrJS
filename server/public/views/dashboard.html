@@ -1,6 +1,22 @@
 <!-- FORM START -->
 <div class="form">
     <h2>Add Pet:</h2>
+
+    <!-- angular materials testing START -->
+    <!-- <div ng-controller="Demo"
+    layout="column" ng-cloak class="md-inline-form">
+
+    <md-content md-theme="docs-dark"
+    layout-gt-sm="row" layout-padding>
+
+    </div> -->
+    <!-- <md-input-container>
+        <label >Test</label>
+        <input ng-model="user.test">
+    </md-input-container> -->
+
+    <!-- angular materials testing END -->
+
     <input type="text" ng-model="vm.newPet.name" placeholder="Pet Name" >
     <input type="text" ng-model="vm.newPet.breed" placeholder="Breed" >
     <input type="text" ng-model="vm.newPet.color" placeholder="Color" >
@@ -15,7 +31,7 @@
         <option value="">Select Owner</option>
         <option ng-repeat="owner in vm.ownerConList.list" value="{{owner.id}}">{{owner.firstname}}</option>
     </select>
-    <button ng-click="vm.addPet(vm.newPet)">Submit</button>
+    <md-button ng-click="vm.addPet(vm.newPet)">Submit</md-button>
 </div>
 <!-- FORM END -->
 <table>
@@ -42,6 +58,6 @@
                        class="notCheckedInBtn" 
                        ng-click="vm.changeStatus(pet.id, pet.checkedIn)">
                         ✓ </button></td>
-            <td><button ng-click="vm.deletePet(pet)">Delete</button></td></tr>
+            <td><md-button ng-click="vm.deletePet(pet)">Delete</md-button></td></tr>
     </tbody>
 </table>
