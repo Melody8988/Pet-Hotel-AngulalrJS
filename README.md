@@ -1,19 +1,19 @@
 # Pet-Hotel-AngulalrJS
 Weekend Five - AngularJS Capstone Project
 
-Basic Features:
-Add owners
-Add pets
-Remove owners if no pets are assigned
-Remove pets
-Check in / out a pet
-Show total number of pet next to each owner
+This is a full stack application intended for a small pet sitting buisness to be able to manage their customer information and all the current pets in their hotel. 
 
-//Database//
-Start with two tables pets & owners. When base features are complete, add more tables as needed for stretch goals.
+Basic functionality includes:
+Ability to add new owners and pets
+Ability to remove owners if no pets are assigned
+Ability to remove pets
+Ability to update the check in status of a pet
+Display the total number of pets next to each owner
 
-Stretch goals:
-Angular Material for design
-Keep track of visits (you may need another table or two for this)
+Database used - Postgresql
+
+Future goals:
+Add Angular Material for design
+Keep track of visits (may need to add another table or two for this)
 Add images for pets
 Update pets and owners
