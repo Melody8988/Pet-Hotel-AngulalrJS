@@ -2,7 +2,7 @@ let express = require('express');
 let petRouter = express.Router();
 const pool = require('../modules/pool.js');
 
-//ROUTER GET
+//GET existing pets from Postgres
 petRouter.get('/', (req, res) => {
     let queryText = `SELECT "pets"."name", "pets"."type", 
                             "pets"."breed", "pets"."color", "pets"."id",
@@ -14,24 +14,24 @@ petRouter.get('/', (req, res) => {
       const response = result.rows;
       console.log(response);
       res.send(result.rows);
-    })
-  });
+    })//end query
+});//end get
 
-//ROUTER POST
+//POST new pet to Postgres
 petRouter.post('/', (req, res) =>{
     let newPet = req.body;
     let queryText = `INSERT INTO "pets" ("name", "type", "breed", "color", "owners_id")
-    VALUES ($1, $2, $3, $4, $5);`
+                     VALUES ($1, $2, $3, $4, $5);`
     pool.query(queryText, [newPet.name, newPet.type, newPet.breed, newPet.color, newPet.owners_id])
     .then( (response) => {
         console.log('Successfully inserted', response);
         res.sendStatus(201);
     }).catch( (error) => {
         console.log('Error inserting TEST', error);
-    });
-});
+    });//end catch
+});//end post
 
-//ROUTER DELETE 
+//DELETE pet on POSTGRES
 petRouter.delete('/:id', (req, res)=>{
     console.log(req.params, 'req.params test');
     let petId = req.params.id;
@@ -42,13 +42,11 @@ petRouter.delete('/:id', (req, res)=>{
       res.sendStatus(204);
     }).catch((err)=>{
       res.sendStatus(500);
-    });
-    
-  });
+    });//end catch
+});//end delete
 
-  //ROUTER CHANGE STATUS 
- petRouter.put('/:id', (req, res)=>{
-
+//UPDATE check in status of pet on Postgres
+petRouter.put('/:id', (req, res)=>{
    console.log('PUT for dash checkin', req.body, req.params);
    const checkBoolean = req.body;
    const petId = req.params.id;
@@ -59,7 +57,7 @@ petRouter.delete('/:id', (req, res)=>{
    }).catch((error)=>{
      console.log('error updating checkin status on database', error);
      res.sendStatus(500);
-   })
- });
+   });//end catch
+});//end put
 
 module.exports = petRouter;

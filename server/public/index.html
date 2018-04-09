@@ -4,35 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PetHotel</title>
+
+    <!-- source all angular files -->
     <script src="vendors/angular.js"></script>
     <link rel="stylesheet" href="styles/angular-material.min.css">
-    
     <script src="vendors/angular-animate.min.js"></script>
     <script src="vendors/angular-aria.min.js"></script>
     <script src="vendors/angular-messages.min.js"></script>
-
     <script src="vendors/angular-material.min.js"></script>
-    
     <script src="vendors/angular-route.js"></script>
+
+    <!-- source all created files -->
     <script src="scripts/client.js"></script>
     <script src="scripts/services/pet.service.js"></script>
     <script src="scripts/controllers/dash.controller.js"></script>
     <script src="scripts/controllers/owner.controller.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
-    
 
-<title>PetHotel</title>
+    <!-- source sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 <body ng-app="petApp">
-    <div class="header">
-    <h1>Pet Sitter 🐾</h1>
-    </div>
+    <div class="header"><h1>Pet Sitter 🐾</h1></div>
+    
+    <!-- to nav.html for href of pages -->
     <div ng-include=" ' views/template/nav.html' "></div>
-
     <main ng-view></main>
- 
-
-
 </body>
 </html>

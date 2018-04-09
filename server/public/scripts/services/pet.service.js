@@ -1,23 +1,20 @@
 petApp.service('petService', ['$http', function($http) {
     console.log('petService has been loaded');
     const self = this;
-    self.petList = {Pets: [] }
+    self.petList = {Pets: [] };
     self.ownerConList = {list: [] };
 
     //DASHBOARD GET - get all existing pets 
     self.getPets = function(){
-        // console.log('On page load, get pets');
         $http.get('/dash').then(function(response){
         self.petList.Pets = response.data;
         }).catch(function(error){
         console.log(error, 'Error getting pets');
-        })//end catch
-    }//end getPets
+        });//end catch
+    };//end getPets
 
     //DASHBOARD POST - add new pet 
     self.addPet = function(pet){
-        // console.log('Inside add pet!', pet);
-        self.newPet = null; //clear form inputs
         $http({
             method: 'POST',
             url: '/dash',
@@ -28,10 +25,10 @@ petApp.service('petService', ['$http', function($http) {
             self.getOwners();
         }).catch(function(error){
             console.log('Error in POST', error)
-        });
-    }
+        });//end catch
+    };//end addPet
 
-    //DASH DELETE 
+    //DASHBOARD DELETE - delete existing pet
     self.deletePet = function(pet) {
         console.log("called deletePet", pet)
         $http({
@@ -43,15 +40,13 @@ petApp.service('petService', ['$http', function($http) {
           self.getOwners();
         }).catch(function(error){
           console.log('cannot delete', error);
-        })
-      }
+        });//end catch
+      };//end deletePet
 
-      //UPDATE STATUS
-      self.changeStatus = function(petId, updatedStatus){
+    //UPDATE if a pet is checked in or not
+    self.changeStatus = function(petId, updatedStatus){
         updatedStatus = !updatedStatus;
-
         console.log('new status will be', updatedStatus);
-
         $http({
             method: 'PUT', 
             url: '/dash/' + petId,
@@ -61,39 +56,38 @@ petApp.service('petService', ['$http', function($http) {
             self.getPets();
         }).catch(function(error){
             console.log('error changing checkin status', error);
-        })
-    }
+        });//end catch
+    };//end changeStatus
 
-    //OWNER GET
+    //OWNER GET - get all existing owners
     self.getOwners = function(){
         console.log('in get owners');
-            $http({
-                method: 'GET',
-                url: '/owners'
-            }).then(function(response){
-                console.log('GET owners:', response);
-                self.ownerConList.list = response.data;
-            }).catch(function(error){
-                console.log('error in GET:', error);
-            })
-        }
+        $http({
+            method: 'GET',
+            url: '/owners'
+        }).then(function(response){
+            console.log('GET owners:', response);
+            self.ownerConList.list = response.data;
+        }).catch(function(error){
+            console.log('error in GET:', error);
+        });//end catch
+    };//end getOwners
 
-    //OWNER POST
+    //OWNER POST - add new owner
     self.addOwner = function(owner){
-            console.log('Inside add owner', owner);
-            self.newOwner = null; //clear form inputs
-            $http({
-                method: 'POST',
-                url: '/owners',
-                data: owner
-            }).then(function(response){
-                console.log('POST response: ', response);
-                self.getOwners();
-                self.getPets();
-            }).catch(function(error){
-                console.log('Error in POST', error)
-            });
-        }
+        console.log('Inside add owner', owner);
+        $http({
+            method: 'POST',
+            url: '/owners',
+            data: owner
+        }).then(function(response){
+            console.log('POST response: ', response);
+            self.getOwners();
+            self.getPets();
+        }).catch(function(error){
+            console.log('Error in POST', error)
+        });//
+    }//end addOwner
 
     //OWNER DELETE 
     self.deleteOwner = function(owner) {
@@ -107,11 +101,12 @@ petApp.service('petService', ['$http', function($http) {
           self.getPets();
         }).catch(function(error){
           console.log('cannot delete', error);
-          alert(`You must remove owner's pet from the hotel before deleting owner information`);
-        })
-      }
+          swal("You must remove owner's pet from the hotel before deleting owner information");
+        });//end catch
+      }//end delete Owner
+
       //get all existing pets and owners
       self.getOwners();
       self.getPets();
 
-}]);
+}]);//end petService

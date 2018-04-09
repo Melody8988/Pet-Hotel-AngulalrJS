@@ -1,12 +1,13 @@
+<!-- FORM START -->
 <div class="form">
-
-<h2>Add Owner:</h2>
-<input type="text" ng-model="vm.newOwner.firstname" placeholder="Owner First Name">
-<input type="text" ng-model="vm.newOwner.lastname" placeholder="Owner Last Name">
-<input type="number" ng-model="vm.newOwner.phone" placeholder="Phone">
-<input type="email" ng-model="vm.newOwner.email" placeholder="Email">
-<button ng-click="vm.addOwner(vm.newOwner)">Submit</button>
+    <h2>Add Owner:</h2>
+    <input type="text" ng-model="vm.newOwner.firstname" placeholder="Owner First Name">
+    <input type="text" ng-model="vm.newOwner.lastname" placeholder="Owner Last Name">
+    <input type="number" ng-model="vm.newOwner.phone" placeholder="Phone">
+    <input type="email" ng-model="vm.newOwner.email" placeholder="Email">
+    <button ng-click="vm.addOwner(vm.newOwner)">Submit</button>
 </div>
+<!-- FORM END -->
 <table>
     <thead><th>First Name</th>
            <th>Last Name</th>
@@ -15,7 +16,6 @@
            <th>Email</th>
            <th>Delete</th>
     </thead>
-
     <tbody>
         <tr ng-repeat="owner in vm.ownerConList.list">
            <td>{{owner.firstname}}</td>
@@ -23,6 +23,6 @@
            <td>{{owner.numOfPets}}</td>
            <td>{{owner.phone}}</td>
            <td>{{owner.email}}</td>
-           <td><button ng-click="vm.deleteOwner(owner)">Delete</button></td>
-        </tr>
+           <td><button ng-click="vm.deleteOwner(owner)">Delete</button></td></tr>
     </tbody>
+</table>

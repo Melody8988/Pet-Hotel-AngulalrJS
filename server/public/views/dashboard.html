@@ -1,25 +1,23 @@
+<!-- FORM START -->
 <div class="form">
     <h2>Add Pet:</h2>
-    <!-- FORM START -->
     <input type="text" ng-model="vm.newPet.name" placeholder="Pet Name" >
     <input type="text" ng-model="vm.newPet.breed" placeholder="Breed" >
     <input type="text" ng-model="vm.newPet.color" placeholder="Color" >
-   <!-- Pet type -->
+   <!-- Pet selector -->
     <select ng-model="vm.newPet.type">
         <option value="">Select Type</option>
         <option >Dog</option>
         <option >Cat</option>
     </select>
-    <!-- Owner id -->
+    <!-- Owner selector -->
     <select ng-model="vm.newPet.owners_id">
         <option value="">Select Owner</option>
         <option ng-repeat="owner in vm.ownerConList.list" value="{{owner.id}}">{{owner.firstname}}</option>
     </select>
     <button ng-click="vm.addPet(vm.newPet)">Submit</button>
 </div>
-    <!-- FORM END -->
-
-
+<!-- FORM END -->
 <table>
     <thead><th>Pet Name</th>
            <th>Type</th>
@@ -28,22 +26,22 @@
            <th>Owner</th>
            <th>Checked In</th>
            <th>Delete</th></thead>
-    <tbody><tr ng-repeat="pet in vm.petList.Pets">
 
+    <!-- iterate over pet array to display-->
+    <tbody><tr ng-repeat="pet in vm.petList.Pets">
            <td>{{pet.name}}</td>
            <td>{{pet.type}}</td>
            <td>{{pet.breed}}</td>
            <td>{{pet.color}}</td>
            <td>{{pet.firstname}}</td>
-           <td><button ng-if="pet.checkedIn" class="checkInBtn" ng-click="vm.changeStatus(pet.id, pet.checkedIn)">
-                        ✓ </button><button ng-if="!pet.checkedIn" class="notCheckedInBtn" ng-click="vm.changeStatus(pet.id, pet.checkedIn)">
+           <td><button ng-if="pet.checkedIn" 
+                       class="checkInBtn" 
+                       ng-click="vm.changeStatus(pet.id, pet.checkedIn)">
                         ✓ </button>
-            
-            <!-- {{pet.checkedIn}} -->
-            </td>
-
-           <td><button ng-click="vm.deletePet(pet)">Delete</button></td>
-        </tr></tbody>
-        
-    
+               <button ng-if="!pet.checkedIn" 
+                       class="notCheckedInBtn" 
+                       ng-click="vm.changeStatus(pet.id, pet.checkedIn)">
+                        ✓ </button></td>
+            <td><button ng-click="vm.deletePet(pet)">Delete</button></td></tr>
+    </tbody>
 </table>
