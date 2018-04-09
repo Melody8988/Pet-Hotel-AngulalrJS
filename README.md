@@ -1,4 +1,4 @@
-# Pet-Hotel-AngulalrJS
+# Pet-Hotel-AngularJS
 Weekend Five - AngularJS Capstone Project
 
 This is a full stack application intended for a small pet sitting buisness to be able to manage their customer information and all the current pets in their hotel. 
