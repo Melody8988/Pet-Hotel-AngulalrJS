@@ -3,7 +3,7 @@
     <h2>Add Owner:</h2>
     <input type="text" ng-model="vm.newOwner.firstname" placeholder="Owner First Name">
     <input type="text" ng-model="vm.newOwner.lastname" placeholder="Owner Last Name">
-    <input type="number" ng-model="vm.newOwner.phone" placeholder="Phone">
+    <input type="tel" ng-model="vm.newOwner.phone" placeholder="Phone">
     <input type="email" ng-model="vm.newOwner.email" placeholder="Email">
     <md-button ng-click="vm.addOwner(vm.newOwner)">Submit</md-button>
 </div>

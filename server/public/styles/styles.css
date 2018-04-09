@@ -57,6 +57,7 @@ body {
     margin: auto;  
     width: 85%;  
     margin-bottom: 50px;
+    align-content: center;
     
   }
     
@@ -73,3 +74,7 @@ body {
       padding: 20px 30px;
     }
   
+    .dashtable{
+      align-content: center;
+      margin-left: 12%;
+    }
