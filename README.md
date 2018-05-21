@@ -61,10 +61,6 @@ INSERT INTO "owners" ("firstname", "lastname", "phone", "email")
 VALUES ('Ann', 'Perkins', '1234567890', 'annperkins@gmail.com');
 ```
 
-## Documentation
-
-Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
-
 ### Completed Features
 
 High level list of items completed.
@@ -84,6 +80,4 @@ Features to add in the future:
 - [ ] Add images for pets
 - [ ] Update pets and owners
 
-## Author
 
-Melody Massard
