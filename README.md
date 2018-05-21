@@ -61,11 +61,6 @@ INSERT INTO "owners" ("firstname", "lastname", "phone", "email")
 VALUES ('Ann', 'Perkins', '1234567890', 'annperkins@gmail.com');
 ```
 
-## Screen Shot
-
-![Screenshot](/Users/Melody8988/prime/weekFive/Pet-Hotel-AngularJS/OwnerScreenShot.png)
-![Screenshot](/Users/Melody8988/prime/weekFive/Pet-Hotel-AngularJS/DashScreenShot.png)
-
 ## Documentation
 
 Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
