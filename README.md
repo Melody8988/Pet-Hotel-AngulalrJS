@@ -2,7 +2,7 @@
 
 This is a full stack application intended for a small pet sitting buisness to be able to manage their customer information and all the current pets in their care. 
 
-**Link when the live version of the app is hosted on Heroku.
+**Link when to live version on Heroku: https://gentle-reef-36138.herokuapp.com/#!/dash
 
 ## Built With SEAN stack
 
@@ -57,7 +57,8 @@ VALUES ('Ann', 'Perkins', '1234567890', 'annperkins@gmail.com');
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![alt text](/Users/Melody8988/prime/weekFive/Pet-Hotel-AngularJS/OwnerScreenShot.png)
+![alt text](/Users/Melody8988/prime/weekFive/Pet-Hotel-AngularJS/DashScreenShot.png)
 
 ## Documentation
 
@@ -77,7 +78,7 @@ High level list of items completed.
 
 Features that I would like to add in the future:
 
-- [ ] Add Angular Material for design
+- [ ] More Angular Material for design
 - [ ] Keep track of visits (may need to add another table or two for this)
 - [ ] Add images for pets
 - [ ] Update pets and owners
@@ -86,11 +87,6 @@ Features that I would like to add in the future:
 
 Add additional notes about how to deploy this on a live system
 
-## Authors
+## Author
 
-* Name of author(s)
-
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
+Melody Massard
