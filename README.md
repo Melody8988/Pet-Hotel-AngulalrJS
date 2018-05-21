@@ -2,17 +2,23 @@
 
 This is a full stack application intended for a small pet sitting buisness to be able to manage their customer information and all the current pets in their care. 
 
-**Link when to live version on Heroku: https://gentle-reef-36138.herokuapp.com/#!/dash
+Live version on Heroku: https://gentle-reef-36138.herokuapp.com/#!/dash
 
 ## Built With SEAN stack
 
-PostgreSQL
-AngularJS
-Express - Node.js
+* PostgreSQL
+* AngularJS
+* Express 
+* Node.js
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+```
+npm install
+```
+```
+npm start
+```
 
 ### Prerequisites
 
@@ -57,8 +63,8 @@ VALUES ('Ann', 'Perkins', '1234567890', 'annperkins@gmail.com');
 
 ## Screen Shot
 
-![alt text](/Users/Melody8988/prime/weekFive/Pet-Hotel-AngularJS/OwnerScreenShot.png)
-![alt text](/Users/Melody8988/prime/weekFive/Pet-Hotel-AngularJS/DashScreenShot.png)
+![Screenshot](/Users/Melody8988/prime/weekFive/Pet-Hotel-AngularJS/OwnerScreenShot.png)
+![Screenshot](/Users/Melody8988/prime/weekFive/Pet-Hotel-AngularJS/DashScreenShot.png)
 
 ## Documentation
 
@@ -76,16 +82,12 @@ High level list of items completed.
 
 ### Next Steps
 
-Features that I would like to add in the future:
+Features to add in the future:
 
 - [ ] More Angular Material for design
 - [ ] Keep track of visits (may need to add another table or two for this)
 - [ ] Add images for pets
 - [ ] Update pets and owners
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Author
 
