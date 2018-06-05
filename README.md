@@ -1,4 +1,4 @@
-# Name of Project
+# Angular Capstone
 
 This is a full stack application intended for a small pet sitting buisness to be able to manage their customer information and all the current pets in their care. 
 
